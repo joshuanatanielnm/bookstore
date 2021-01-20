@@ -12,14 +12,12 @@ class RecomBook extends StatelessWidget {
             CategoryBook(
               image: "assets/img/k&b.png",
               title: "Kancil & Buaya",
-              stok: 50,
               price: "Rp 50.000",
               press: () {},
             ),
             CategoryBook(
               image: "assets/img/k&b.png",
               title: "Kancil & Buaya",
-              stok: 40,
               price: "Rp 55.000",
               press: () {},
             ),
@@ -30,14 +28,12 @@ class RecomBook extends StatelessWidget {
             CategoryBook(
               image: "assets/img/k&b.png",
               title: "Kancil & Buaya",
-              stok: 35,
               price: "Rp 65.000",
               press: () {},
             ),
             CategoryBook(
               image: "assets/img/k&b.png",
               title: "Kancil & Buaya",
-              stok: 48,
               price: "Rp 57.000",
               press: () {},
             ),
@@ -112,13 +108,6 @@ class CategoryBook extends StatelessWidget {
                             color: WarnaItem,
                             fontSize: 17.0,
                             fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                        TextSpan(
-                          text: "Stok : $stok\n\n",
-                          style: GoogleFonts.roboto(
-                            color: WarnaItem.withOpacity(0.3),
-                            fontSize: 15.0,
                           ),
                         ),
                         TextSpan(

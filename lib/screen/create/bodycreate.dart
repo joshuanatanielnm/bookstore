@@ -1,9 +1,8 @@
 import 'package:bookstore/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:bookstore/screen/home/recomended.dart';
 
-class HomeBody extends StatelessWidget {
+class CreateBody extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
@@ -46,6 +45,23 @@ class HomeBody extends StatelessWidget {
               top: defaultpadding / 10,
             ),
             child: Text(
+              'Add Book',
+              style: GoogleFonts.roboto(
+                color: WarnaPrimary,
+                fontSize: 21.0,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+          ),
+          Container(
+            alignment: Alignment.topLeft,
+            margin: EdgeInsets.only(
+              bottom: defaultpadding,
+              left: defaultpadding,
+              right: defaultpadding,
+              top: defaultpadding / 10,
+            ),
+            child: Text(
               'List Book',
               style: GoogleFonts.roboto(
                 color: WarnaPrimary,
@@ -54,7 +70,6 @@ class HomeBody extends StatelessWidget {
               ),
             ),
           ),
-          RecomBook(),
         ],
       ),
     );

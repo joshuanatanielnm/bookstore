@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 //PEWARNAAN
-const WarnaPrimary = Color(0xFF00a8ff);
+const WarnaPrimary = Color(0xFF69A7A7);
 const Warnatext1 = Color(0xFFFFFFFF);
 const WarnaBG = Color(0xFFF5F5F5);
 const WarnaItem = Color(0xFF000000);
