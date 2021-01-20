@@ -1,3 +1,4 @@
+import 'package:bookstore/constants.dart';
 import 'package:flutter/material.dart';
 // import 'dart:io';
 // import 'package:image_picker/image_picker.dart';
@@ -88,9 +89,12 @@ class _FormlayoutStates extends State<Formlayout> {
           Row(
             children: <Widget>[
               Container(
-                  margin: EdgeInsets.only(left: 20),
+                  margin: EdgeInsets.only(left: 20, top: 8),
                   child: RaisedButton(
-                    color: Colors.blue,
+                    color: WarnaPrimary,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(15.0),
+                    ),
                     onPressed: () {
                       setState(() {});
                     },
