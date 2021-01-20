@@ -10,15 +10,9 @@ class RecomBook extends StatelessWidget {
         Row(
           children: <Widget>[
             CategoryBook(
-              image: "assets/img/k&b.png",
               title: "Kancil & Buaya",
+              desc: "Ini Deskripsi Sebuah Buku",
               price: "Rp 50.000",
-              press: () {},
-            ),
-            CategoryBook(
-              image: "assets/img/k&b.png",
-              title: "Kancil & Buaya",
-              price: "Rp 55.000",
               press: () {},
             ),
           ],
@@ -26,15 +20,9 @@ class RecomBook extends StatelessWidget {
         Row(
           children: <Widget>[
             CategoryBook(
-              image: "assets/img/k&b.png",
               title: "Kancil & Buaya",
+              desc: "Ini Deskripsi Sebuah Buku",
               price: "Rp 65.000",
-              press: () {},
-            ),
-            CategoryBook(
-              image: "assets/img/k&b.png",
-              title: "Kancil & Buaya",
-              price: "Rp 57.000",
               press: () {},
             ),
           ],
@@ -47,20 +35,20 @@ class RecomBook extends StatelessWidget {
 class CategoryBook extends StatelessWidget {
   const CategoryBook({
     Key key,
-    this.image,
     this.title,
     this.price,
-    this.stok,
+    this.desc,
     this.press,
   }) : super(key: key);
 
-  final String image, title, price;
-  final int stok;
+  final String desc, title;
+  final String price;
   final Function press;
 
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
+
     return Container(
       decoration: BoxDecoration(
         color: Colors.white,
@@ -83,12 +71,9 @@ class CategoryBook extends StatelessWidget {
         left: defaultpadding,
         right: defaultpadding,
       ),
-      width: size.width * 0.4,
+      width: 385,
       child: Column(
         children: <Widget>[
-          Container(
-            child: Image.asset(image),
-          ),
           GestureDetector(
             onTap: press,
             child: Container(
@@ -108,6 +93,13 @@ class CategoryBook extends StatelessWidget {
                             color: WarnaItem,
                             fontSize: 17.0,
                             fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                        TextSpan(
+                          text: "$desc\n\n",
+                          style: GoogleFonts.roboto(
+                            color: WarnaPrimary,
+                            fontSize: 17.0,
                           ),
                         ),
                         TextSpan(
