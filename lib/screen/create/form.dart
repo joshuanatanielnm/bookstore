@@ -7,10 +7,10 @@ class Formlayout extends StatefulWidget {
   Formlayout({Key key}) : super(key: key);
 
   @override
-  _FormlayoutState createState() => _FormlayoutState();
+  _FormlayoutStates createState() => _FormlayoutStates();
 }
 
-class _FormlayoutState extends State<Formlayout> {
+class _FormlayoutStates extends State<Formlayout> {
   @override
   Widget build(BuildContext context) {}
 }
