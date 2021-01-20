@@ -1,4 +1,5 @@
 import 'package:bookstore/constants.dart';
+import 'package:bookstore/screen/create/form.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -53,23 +54,7 @@ class CreateBody extends StatelessWidget {
               ),
             ),
           ),
-          Container(
-            alignment: Alignment.topLeft,
-            margin: EdgeInsets.only(
-              bottom: defaultpadding,
-              left: defaultpadding,
-              right: defaultpadding,
-              top: defaultpadding / 10,
-            ),
-            child: Text(
-              'List Book',
-              style: GoogleFonts.roboto(
-                color: WarnaPrimary,
-                fontSize: 21.0,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-          ),
+          FormLayout(),
         ],
       ),
     );

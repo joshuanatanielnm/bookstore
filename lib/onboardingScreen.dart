@@ -1,7 +1,5 @@
 import 'package:bookstore/constants.dart';
 import 'package:bookstore/screen/home/homescreen.dart';
-// import 'package:bookstore/screen/scategory/categoryscreen.dart';
-// import 'package:bookstore/search.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
@@ -30,7 +28,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
       height: 8.0,
       width: isActive ? 24.0 : 16.0,
       decoration: BoxDecoration(
-        color: isActive ? Colors.white : Colors.blue,
+        color: isActive ? Colors.white : Color(0xFF69A7A7),
         borderRadius: BorderRadius.all(Radius.circular(12)),
       ),
     );
@@ -48,10 +46,10 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
               end: Alignment.bottomCenter,
               stops: [0.1, 0.4, 0.7, 0.9],
               colors: [
-                Color(0xFF00a8FF),
-                Color(0xFF00a8FF),
-                Color(0xFF00a8FF),
-                Color(0xFF00a8FF),
+                Color(0xFF69A7A7),
+                Color(0xFF69A7A7),
+                Color(0xFF69A7A7),
+                Color(0xFF69A7A7),
               ],
             ),
           ),
@@ -215,7 +213,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                       Text(
                         'Get Started',
                         style:
-                            TextStyle(fontSize: 25.0, color: Colors.blue[600]),
+                            TextStyle(fontSize: 25.0, color: Color(0xFF69A7A7)),
                       )
                     ],
                   ),
