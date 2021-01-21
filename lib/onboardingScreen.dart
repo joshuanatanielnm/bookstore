@@ -59,7 +59,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: <Widget>[
                 Container(
-                  height: 600.0,
+                  height: 1000,
                   child: PageView(
                     physics: ClampingScrollPhysics(),
                     controller: _pageController,
@@ -201,7 +201,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
               height: 80.0,
               width: double.infinity,
               color: Colors.white,
-              child: TextButton(
+              child: FlatButton(
                 onPressed: () {
                   Navigator.of(context).push(
                       MaterialPageRoute(builder: (context) => HomeScreen()));
