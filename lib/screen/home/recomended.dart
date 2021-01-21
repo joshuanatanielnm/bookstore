@@ -1,33 +1,80 @@
 import 'package:flutter/material.dart';
 import 'package:bookstore/constants.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 
 class RecomBook extends StatelessWidget {
+  final Firestore firestore = Firestore.instance;
   @override
   Widget build(BuildContext context) {
     return Column(
+
+      // DIBAWAH INI DINAMIS DARI FIREBASE (Masih ERROR) SILAHKAN DIHAPUS
+      // Link reference : https://medium.com/nusanet/flutter-firestore-crud-25c54c07308f
+
       children: <Widget>[
-        Row(
-          children: <Widget>[
-            CategoryBook(
-              title: "Kancil & Buaya",
-              desc: "Ini Deskripsi Sebuah Buku",
-              price: "Rp 50.000",
-              press: () {},
-            ),
-          ],
-        ),
-        Row(
-          children: <Widget>[
-            CategoryBook(
-              title: "Kancil & Buaya",
-              desc: "Ini Deskripsi Sebuah Buku",
-              price: "Rp 65.000",
-              press: () {},
-            ),
-          ],
+        StreamBuilder<QuerySnapshot>(
+          stream: firestore.collection('books').snapshots(),
+          builder: (BuildContext context, AsyncSnapshot<QuerySnapshot> snapshot) {
+            if (!snapshot.hasData) {
+              return Center(child: Text('errrorrr'));
+            }
+            return ListView(
+              children: snapshot.data.documents.map((document) {
+                return Center(
+                  child: Container(
+                    width: MediaQuery.of(context).size.width / 1.2,
+                    height: MediaQuery.of(context).size.height / 5,
+                    child: Text(document['title']),
+                  ),
+                );
+              }).toList()
+            );
+            // return ListView.builder(
+            //   itemCount: snapshot.data.documents.length,
+            //   itemBuilder: (BuildContext context, int index) {
+            //     DocumentSnapshot document = snapshot.data.documents[index];
+            //     Map<String, dynamic> task = document.data;
+            //     return Row(children: <Widget>[
+            //       CategoryBook(
+            //         title: "Ragil itu Buaya",
+            //         desc: "Ini Deskripsi Sebuah Buku",
+            //         price: "Rp 50.000",
+            //         press: () {},
+            //       ),
+            //     ]);
+            //   }
+            // );
+          }
         )
-      ],
+      ]
+
+
+
+      // DIBAWAH INI CODINGAN YANG STATICNYA DARI UCUP
+
+      // children: <Widget>[
+      //   Row(
+      //     children: <Widget>[
+      //       CategoryBook(
+      //         title: "Ragil itu Buaya",
+      //         desc: "Ini Deskripsi Sebuah Buku",
+      //         price: "Rp 50.000",
+      //         press: () {},
+      //       ),
+      //     ],
+      //   ),
+      //   Row(
+      //     children: <Widget>[
+      //       CategoryBook(
+      //         title: "Kancil & Buaya",
+      //         desc: "Ini Deskripsi Sebuah Buku",
+      //         price: "Rp 65.000",
+      //         press: () {},
+      //       ),
+      //     ],
+      //   )
+      // ],
     );
   }
 }
@@ -47,7 +94,6 @@ class CategoryBook extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Size size = MediaQuery.of(context).size;
 
     return Container(
       decoration: BoxDecoration(
