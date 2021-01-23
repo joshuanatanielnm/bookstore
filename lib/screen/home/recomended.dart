@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:bookstore/constants.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:flutter/foundation.dart';
 
 class RecomBook extends StatelessWidget {
   final Firestore firestore = Firestore.instance;
@@ -20,34 +19,22 @@ class RecomBook extends StatelessWidget {
               return Center(child: Text('errrorrr'));
             }
 
-            return ListView(
-              children: snapshot.data.documents.map((document) {
 
-            debugPrint('snapshoot: $document');
-                return Center(
-                  child: Container(
-                    width: MediaQuery.of(context).size.width / 1.2,
-                    height: MediaQuery.of(context).size.height / 5,
-                    child: Text(document['title']),
+            return ListView.builder(
+              itemCount: snapshot.data.documents.length,
+              itemBuilder: (BuildContext context, int index) {
+                DocumentSnapshot document = snapshot.data.documents[index];
+                Map<String, dynamic> task = document.data;
+                return Row(children: <Widget>[
+                  CategoryBook(
+                    title: "Ragil itu Buaya",
+                    desc: "Ini Deskripsi Sebuah Buku",
+                    price: "Rp 50.000",
+                    press: () {},
                   ),
-                );
-              }).toList()
+                ]);
+              }
             );
-            // return ListView.builder(
-            //   itemCount: snapshot.data.documents.length,
-            //   itemBuilder: (BuildContext context, int index) {
-            //     DocumentSnapshot document = snapshot.data.documents[index];
-            //     Map<String, dynamic> task = document.data;
-            //     return Row(children: <Widget>[
-            //       CategoryBook(
-            //         title: "Ragil itu Buaya",
-            //         desc: "Ini Deskripsi Sebuah Buku",
-            //         price: "Rp 50.000",
-            //         press: () {},
-            //       ),
-            //     ]);
-            //   }
-            // );
           }
         )
       ]
