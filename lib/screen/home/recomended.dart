@@ -2,16 +2,15 @@ import 'package:flutter/material.dart';
 import 'package:bookstore/constants.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:flutter/foundation.dart';
 
 class RecomBook extends StatelessWidget {
   final Firestore firestore = Firestore.instance;
   @override
   Widget build(BuildContext context) {
     return Column(
-
       // DIBAWAH INI DINAMIS DARI FIREBASE (Masih ERROR) SILAHKAN DIHAPUS
       // Link reference : https://medium.com/nusanet/flutter-firestore-crud-25c54c07308f
-
       children: <Widget>[
         StreamBuilder<QuerySnapshot>(
           stream: firestore.collection('books').snapshots(),
@@ -19,8 +18,11 @@ class RecomBook extends StatelessWidget {
             if (!snapshot.hasData) {
               return Center(child: Text('errrorrr'));
             }
+
             return ListView(
               children: snapshot.data.documents.map((document) {
+
+            debugPrint('snapshoot: $document');
                 return Center(
                   child: Container(
                     width: MediaQuery.of(context).size.width / 1.2,
