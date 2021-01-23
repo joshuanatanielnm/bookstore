@@ -41,17 +41,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
         value: SystemUiOverlayStyle.light,
         child: Container(
           decoration: BoxDecoration(
-            gradient: LinearGradient(
-              begin: Alignment.topCenter,
-              end: Alignment.bottomCenter,
-              stops: [0.1, 0.4, 0.7, 0.9],
-              colors: [
-                Color(0xFF69A7A7),
-                Color(0xFF69A7A7),
-                Color(0xFF69A7A7),
-                Color(0xFF69A7A7),
-              ],
-            ),
+            color: WarnaDashboard,
           ),
           child: Padding(
             padding: EdgeInsets.symmetric(vertical: 40.0),
