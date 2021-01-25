@@ -28,7 +28,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
       height: 8.0,
       width: isActive ? 24.0 : 16.0,
       decoration: BoxDecoration(
-        color: isActive ? Colors.white : Color(0xFF69A7A7),
+        color: isActive ? Colors.white : Color(0xFF000000),
         borderRadius: BorderRadius.all(Radius.circular(12)),
       ),
     );
@@ -40,16 +40,14 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
       body: AnnotatedRegion<SystemUiOverlayStyle>(
         value: SystemUiOverlayStyle.light,
         child: Container(
-          decoration: BoxDecoration(
-            color: WarnaDashboard,
-          ),
+          decoration: BoxDecoration(color: WarnaDashboard),
           child: Padding(
             padding: EdgeInsets.symmetric(vertical: 40.0),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: <Widget>[
                 Container(
-                  height: 1000,
+                  height: 600.0,
                   child: PageView(
                     physics: ClampingScrollPhysics(),
                     controller: _pageController,
@@ -70,7 +68,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                                   'assets/img/undraw_book_lover_mkck__1_-removebg-preview.png',
                                 ),
                                 height: 300.0,
-                                width: 500.0,
+                                width: 300.0,
                               ),
                             ),
                             SizedBox(height: 30.0),
@@ -97,7 +95,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                                   'assets/img/undraw_Mobile_app_p3ts__1_-removebg-preview.png',
                                 ),
                                 height: 300.0,
-                                width: 500.0,
+                                width: 300.0,
                               ),
                             ),
                             SizedBox(height: 30.0),
@@ -124,7 +122,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                                   'assets/img/undraw_book_reading_kx9s-removebg-preview.png',
                                 ),
                                 height: 300.0,
-                                width: 500.0,
+                                width: 300.0,
                               ),
                             ),
                             SizedBox(height: 30.0),
