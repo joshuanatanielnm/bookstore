@@ -1,6 +1,6 @@
 import 'package:bookstore/constants.dart';
 import 'package:flutter/material.dart';
-// import 'package:bookstore/screen/home/homescreen.dart';
+import 'package:bookstore/screen/home/homescreen.dart';
 // import 'package:bookstore/screen/scategory/categoryscreen.dart';
 import 'package:bookstore/onboardingScreen.dart';
 
@@ -17,7 +17,8 @@ class MyApp extends StatelessWidget {
         scaffoldBackgroundColor: WarnaBG,
         primaryColor: WarnaPrimary,
       ),
-      home: OnboardingScreen(),
+      home: HomeScreen(),
+      // OnboardingScreen(),
     );
   }
 }
