@@ -79,11 +79,6 @@ class HomeScreen extends StatelessWidget {
                   ),
                 ),
               ),
-            ],
-          ),
-          ListView(
-            children: [
-              //// VIEW DATA HERE
               FutureBuilder<QuerySnapshot>(
                   future: books.get(),
                   builder: (_, snapshot) {
@@ -98,9 +93,6 @@ class HomeScreen extends StatelessWidget {
                       return Text('Loading');
                     }
                   }),
-              SizedBox(
-                height: 150,
-              )
             ],
           ),
         ],

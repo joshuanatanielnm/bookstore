@@ -1,16 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:bookstore/constants.dart';
 
 class ItemCard extends StatelessWidget {
   final String judul;
   final String desc;
   final int harga;
-  //// Pointer to Update Function
-  final Function onUpdate;
   //// Pointer to Delete Function
   final Function onDelete;
 
-  ItemCard(this.judul, this.desc, this.harga, {this.onUpdate, this.onDelete});
+  ItemCard(this.judul, this.desc, this.harga, {this.onDelete});
 
   @override
   Widget build(BuildContext context) {
@@ -20,7 +19,7 @@ class ItemCard extends StatelessWidget {
       padding: const EdgeInsets.all(5),
       decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(8),
-          border: Border.all(color: Colors.blue[900])),
+          border: Border.all(color: WarnaPrimary)),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
@@ -40,28 +39,13 @@ class ItemCard extends StatelessWidget {
                         fontWeight: FontWeight.w600, fontSize: 16)),
               ),
               Text(
-                "$harga years old",
+                "Rp $harga",
                 style: GoogleFonts.poppins(),
               )
             ],
           ),
           Row(
             children: [
-              SizedBox(
-                height: 40,
-                width: 60,
-                child: RaisedButton(
-                    shape: CircleBorder(),
-                    color: Colors.green[900],
-                    child: Center(
-                        child: Icon(
-                      Icons.arrow_upward,
-                      color: Colors.white,
-                    )),
-                    onPressed: () {
-                      if (onUpdate != null) onUpdate();
-                    }),
-              ),
               SizedBox(
                 height: 40,
                 width: 60,
