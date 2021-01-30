@@ -1,12 +1,17 @@
 import 'package:bookstore/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:bookstore/screen/home/recomended.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_core/firebase_core.dart';
+// import 'package:bookstore/screen/home/viewdata.dart';
 
 class HomeBody extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
+    FirebaseFirestore firestore = FirebaseFirestore.instance;
+    CollectionReference books = firestore.collection('books');
+
     Size size = MediaQuery.of(context).size;
 
     return SingleChildScrollView(
@@ -54,7 +59,14 @@ class HomeBody extends StatelessWidget {
               ),
             ),
           ),
-          RecomBook(),
+          ListView(
+            children: [
+              //// VIEW DATA HERE
+              SizedBox(
+                height: 150,
+              )
+            ],
+          ),
         ],
       ),
     );
