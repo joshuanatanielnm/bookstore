@@ -30,7 +30,9 @@ class ItemCard extends StatelessWidget {
                 width: MediaQuery.of(context).size.width * 0.5,
                 child: Text(judul,
                     style: GoogleFonts.poppins(
-                        fontWeight: FontWeight.w600, fontSize: 16)),
+                        fontWeight: FontWeight.w600,
+                        fontSize: 16,
+                        color: WarnaPrimary)),
               ),
               SizedBox(
                 width: MediaQuery.of(context).size.width * 0.5,
