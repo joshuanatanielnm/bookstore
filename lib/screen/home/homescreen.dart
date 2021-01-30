@@ -79,14 +79,37 @@ class HomeScreen extends StatelessWidget {
                   ),
                 ),
               ),
-              FutureBuilder<QuerySnapshot>(
-                  future: books.get(),
+
+              //// FUTURE
+              // FutureBuilder<QuerySnapshot>(
+              //     future: books.get(),
+              //     builder: (_, snapshot) {
+              //       if (snapshot.hasData) {
+              //         return Column(
+              //           children: snapshot.data.docs
+              //               .map((e) => ItemCard(e.data()['title'],
+              //                   e.data()['description'], e.data()['price']))
+              //               .toList(),
+              //         );
+              //       } else {
+              //         return Text('Loading');
+              //       }
+              //     }),
+              //// STREAM
+              StreamBuilder<QuerySnapshot>(
+                  stream: books.snapshots(),
                   builder: (_, snapshot) {
                     if (snapshot.hasData) {
                       return Column(
                         children: snapshot.data.docs
-                            .map((e) => ItemCard(e.data()['title'],
-                                e.data()['description'], e.data()['price']))
+                            .map((e) => ItemCard(
+                                  e.data()['title'],
+                                  e.data()['description'],
+                                  e.data()['price'],
+                                  onDelete: () {
+                                    books.doc(e.id).delete();
+                                  },
+                                ))
                             .toList(),
                       );
                     } else {

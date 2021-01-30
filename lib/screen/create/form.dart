@@ -1,5 +1,7 @@
 import 'package:bookstore/constants.dart';
 import 'package:flutter/material.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_core/firebase_core.dart';
 // import 'dart:io';
 // import 'package:image_picker/image_picker.dart';
 
@@ -18,6 +20,9 @@ class _FormlayoutStates extends State<Formlayout> {
 
   @override
   Widget build(BuildContext context) {
+    FirebaseFirestore firestore = FirebaseFirestore.instance;
+    CollectionReference books = firestore.collection('books');
+
     return Form(
       child: Column(
         mainAxisAlignment: MainAxisAlignment.start,
@@ -96,7 +101,14 @@ class _FormlayoutStates extends State<Formlayout> {
                       borderRadius: BorderRadius.circular(15.0),
                     ),
                     onPressed: () {
-                      setState(() {});
+                      books.add({
+                        'title': namaController.text,
+                        'description': descController.text,
+                        'price': int.tryParse(hargaController.text) ?? 0
+                      });
+                      namaController.text = '';
+                      descController.text = '';
+                      hargaController.text = '';
                     },
                     child: Text(
                       'Simpan',
