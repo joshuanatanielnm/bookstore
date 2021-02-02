@@ -11,8 +11,9 @@ class HomeScreen extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    FirebaseFirestore firestore = FirebaseFirestore.instance;
-    CollectionReference books = firestore.collection('books');
+    FirebaseFirestore firestore = FirebaseFirestore.instance; //pointer/instance
+    CollectionReference books =
+        firestore.collection('books'); //mengambilcolllection
 
     Size size = MediaQuery.of(context).size;
 
